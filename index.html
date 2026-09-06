@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESL Irregular Verbs Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- LOGIN SCREEN -->
+        <div id="loginScreen" class="screen active">
+            <div class="card">
+                <h1>🎮 ESL Irregular Verbs Game</h1>
+                <h2>For 4th ESO Students</h2>
+                
+                <div class="login-form">
+                    <div class="form-group">
+                        <label for="nameInput">First Name:</label>
+                        <input type="text" id="nameInput" placeholder="e.g., Pau" maxlength="50">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="surnameInput">Surname:</label>
+                        <input type="text" id="surnameInput" placeholder="e.g., García" maxlength="50">
+                    </div>
+                    
+                    <button id="startBtn" class="btn btn-primary" onclick="startGame()">Start Game</button>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>How to play:</strong></p>
+                    <p>See the base form of an irregular verb and provide 3 answers:</p>
+                    <ul>
+                        <li>Past Simple (e.g., went)</li>
+                        <li>Past Participle (e.g., gone)</li>
+                        <li>Catalan translation (e.g., anar)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEVEL SELECTION SCREEN -->
+        <div id="levelScreen" class="screen">
+            <div class="card">
+                <h1>Choose Your Level</h1>
+                <p>Select a difficulty and start practicing!</p>
+                
+                <div class="levels-grid">
+                    <div class="level-card" onclick="selectLevel(1)">
+                        <h3>Level 1</h3>
+                        <p class="stars">⭐</p>
+                        <p class="description">Essential Verbs</p>
+                        <p class="verbs-count">10 verbs</p>
+                        <p class="time">10-15 min</p>
+                    </div>
+                    
+                    <div class="level-card" onclick="selectLevel(2)">
+                        <h3>Level 2</h3>
+                        <p class="stars">⭐⭐</p>
+                        <p class="description">Common Verbs</p>
+                        <p class="verbs-count">20 verbs</p>
+                        <p class="time">25-35 min</p>
+                    </div>
+                    
+                    <div class="level-card" onclick="selectLevel(3)">
+                        <h3>Level 3</h3>
+                        <p class="stars">⭐⭐⭐</p>
+                        <p class="description">Extended Verbs</p>
+                        <p class="verbs-count">20 verbs</p>
+                        <p class="time">25-35 min</p>
+                    </div>
+                    
+                    <div class="level-card" onclick="selectLevel(4)">
+                        <h3>Level 4</h3>
+                        <p class="stars">⭐⭐⭐⭐⭐</p>
+                        <p class="description">MASTER Challenge</p>
+                        <p class="verbs-count">50 verbs</p>
+                        <p class="time">60-80 min</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <button id="backBtn" class="btn btn-secondary" onclick="backToLogin()">Change Name</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME SCREEN -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="student-info">
+                    <span id="studentName"></span> | Level <span id="levelDisplay"></span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="question-counter">
+                    <span id="questionNumber">1</span> / <span id="totalQuestions">10</span>
+                </div>
+            </div>
+
+            <div class="card game-card">
+                <div class="base-form-display">
+                    <h2>Base Form:</h2>
+                    <h1 id="baseForm">go</h1>
+                </div>
+
+                <div id="questionsContainer" class="questions-container">
+                    <!-- Questions will be generated here -->
+                </div>
+
+                <button id="checkBtn" class="btn btn-primary" onclick="checkAnswers()">Check Answers</button>
+                <div id="feedback" class="feedback"></div>
+
+                <button id="nextBtn" class="btn btn-secondary" onclick="nextQuestion()" style="display: none;">Next Question</button>
+            </div>
+
+            <div class="score-display">
+                <strong>Score: <span id="currentScore">0</span> / <span id="maxScore">30</span></strong>
+            </div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="resultsScreen" class="screen">
+            <div class="card results-card">
+                <h1>Level Complete! 🎉</h1>
+                
+                <div class="score-box">
+                    <div class="final-score" id="finalScore">100%</div>
+                    <div class="rating" id="ratingMessage">🥇 PERFECT MASTERY!</div>
+                </div>
+
+                <div class="results-breakdown">
+                    <h3>Your Results:</h3>
+                    <p>Score: <span id="resultsScore">30</span> / <span id="resultsMaxScore">30</span> points</p>
+                    <p>Text Inputs: <span id="textInputCorrect">0</span> / <span id="textInputTotal">0</span></p>
+                    <p>Multiple Choice: <span id="mcCorrect">0</span> / <span id="mcTotal">0</span></p>
+                    <p id="improvementMessage" class="improvement-msg"></p>
+                </div>
+
+                <div class="student-progress" style="margin-top: 20px;">
+                    <h3 id="progressTitle">Your Progress</h3>
+                    <div id="progressDetails"></div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="retryBtn" class="btn btn-primary" onclick="retryLevel()">Retry This Level</button>
+                    <button id="nextLevelBtn" class="btn btn-success" onclick="nextLevel()" style="display: none;">Next Level</button>
+                    <button class="btn btn-secondary" onclick="backToLevels()">Choose Different Level</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
