@@ -76,7 +76,7 @@ A comprehensive, randomized verb matching game where students see the BASE FORM 
 43. break → broke | broken | trencar
 44. build → built | built | construir
 45. catch → caught | caught | atrapar
-46. choose → chose → chosen | triar
+46. choose → chose | chosen | triar
 47. cut → cut | cut | tallar
 48. draw → drew | drawn | dibuixar
 49. drive → drove | driven | conduir
@@ -394,6 +394,16 @@ If wrong, shows why:
 
 ```
 ═══════════════════════════════════════════════════════════
+STUDENT SESSION START
+═══════════════════════════════════════════════════════════
+
+Enter your name and surname:
+Name: [Pau____________]
+Surname: [García___________]
+
+           [START GAME]
+
+═══════════════════════════════════════════════════════════
 LEVEL 1: ESSENTIAL VERBS - Question 1 of 10
 ═══════════════════════════════════════════════════════════
 
@@ -445,61 +455,11 @@ have (base) → had (past) → had (participle) | tenir (Catalan)
 [NEXT VERB →]
 
 ═══════════════════════════════════════════════════════════
-LEVEL 1: ESSENTIAL VERBS - Question 3 of 10
-═══════════════════════════════════════════════════════════
-
-BASE FORM: DO
-
-[PATTERN 3: 2 TEXT INPUT + 1 MULTIPLE CHOICE]
-
-Past Simple: [did____________________]
-Past Participle: [done_________________]
-
-Catalan (select):
-⚪ hacer  ⚪ fer    ⚪ fazer   ⚪ fazer
-
-           [CHECK ANSWERS]
-
-User enters: did, done, selects "fer"
-
-✓ PERFECT! +3 POINTS
-
-Complete form:
-do (base) → did (past) → done (participle) | fer (Catalan)
-
-[NEXT VERB →]
-
-═══════════════════════════════════════════════════════════
-LEVEL 1: ESSENTIAL VERBS - Question 4 of 10
-═══════════════════════════════════════════════════════════
-
-BASE FORM: EAT
-
-[PATTERN 5: 1 TEXT INPUT + 2 MULTIPLE CHOICE]
-
-Past Simple (select):
-⚪ eat    ⚪ eated  ⚪ ate    ⚪ eaten
-
-Past Participle (select):
-⚪ eat    ⚪ ate    ⚪ eaten  ⚪ eater
-
-Catalan: [menjar________________]
-
-           [CHECK ANSWERS]
-
-User selects: ate, eaten, types: menjar
-
-✓ PERFECT! +3 POINTS
-
-Complete form:
-eat (base) → ate (past) → eaten (participle) | menjar (Catalan)
-
-═══════════════════════════════════════════════════════════
-[Continuing with questions 5-10...]
+[Questions 3-10 continue...]
 ═══════════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════════
-LEVEL 1 COMPLETE - RESULTS
+LEVEL 1 COMPLETE - RESULTS FOR PAU GARCÍA
 ═══════════════════════════════════════════════════════════
 
 Score: 30/30 (100%)
@@ -516,7 +476,7 @@ Next: Level 2 (20 Common Verbs)
       Level 3 (20 Extended Verbs)
       Level 4 MASTER (50 Verbs Challenge)
 
-[CONTINUE] [TAKE BREAK] [END SESSION]
+[CONTINUE TO LEVEL 2] [TAKE BREAK] [END SESSION]
 ```
 
 ---
@@ -583,23 +543,26 @@ Next: Level 2 (20 Common Verbs)
 | 50-64% | ⚠️ NEEDS WORK | You're improving! More practice needed! |
 | <50% | ❌ TRY AGAIN | Review the list and try again! |
 
-### Progress Tracking:
+### Progress Tracking (Saved with Name):
 
 ```
-YOUR PROGRESS:
+STUDENT: PAU GARCÍA
 ═══════════════════════════════════════════════════════════
 
 LEVEL 1: ████████░░ 89% (Best: 96%)
          Completed: 8 times | Average: 84%
          Weak areas: be/been/was
+         Last played: Today at 3:45 PM
 
 LEVEL 2: ███████░░░ 78% (Best: 91%)
          Completed: 5 times | Average: 76%
          Weak areas: teach/taught, sell/sold
+         Last played: Yesterday at 4:20 PM
 
 LEVEL 3: ████░░░░░░ 45% (Best: 67%)
          Completed: 2 times | Average: 41%
          Weak areas: Most verbs - keep practicing!
+         Last played: 2 days ago
 
 LEVEL 4: ░░░░░░░░░░ 0% (Best: 0%)
          Not completed yet
@@ -652,17 +615,19 @@ LEVEL 4: ░░░░░░░░░░ 0% (Best: 0%)
 - Each level builds confidence
 - Level 4 = true expertise
 
-### ✅ **Teacher-Friendly**
-- Track which students know which verbs
-- Identify class weak points
-- See improvement over time
-- Supports exam prep
+### ✅ **Simple Name-Based Tracking**
+- No user accounts needed
+- Students just enter name & surname
+- Scores saved locally with their name
+- Session history tracked per student
+- Easy for classroom management
 
 ### ✅ **Student-Friendly**
 - Intuitive interface
 - Immediate feedback
 - Achievable goals
 - Rewarding progression
+- Simple login process
 
 ### ✅ **Exam-Ready**
 - Covers all essential irregular verbs for 4th ESO
@@ -674,33 +639,130 @@ LEVEL 4: ░░░░░░░░░░ 0% (Best: 0%)
 
 ## 🚀 IMPLEMENTATION ROADMAP
 
-### Phase 1: MVP (Core Game)
-- [x] Verb database (50 verbs with 4 forms each)
-- [x] Question generator (8 pattern types)
-- [x] Text input with validation
-- [x] Multiple choice with random distractors
-- [x] Basic scoring
-- [ ] Level 1 only to start
+### **PHASE 1: MVP (Core Game) - Foundation**
+- [ ] Simple HTML interface
+- [ ] Name/Surname input screen
+- [ ] Verb database (50 verbs with 4 forms each)
+- [ ] Question generator (8 pattern types randomized)
+- [ ] Text input with validation (case-insensitive, trimmed)
+- [ ] Multiple choice with random distractors
+- [ ] Basic scoring system (3 points per complete set)
+- [ ] Level 1 fully functional (10 essential verbs)
+- [ ] localStorage for saving scores with student name
+- [ ] Session start/end functionality
 
-### Phase 2: Expansion
-- [ ] Levels 2, 3, 4
-- [ ] Progress tracking (localStorage)
-- [ ] Score history
-- [ ] Weak verb identification
-
-### Phase 3: Enhancement
-- [ ] Mobile responsive design
-- [ ] Timer option
-- [ ] Sound effects (optional)
-- [ ] Achievements/Badges
-
-### Phase 4: Advanced (Optional)
-- [ ] User accounts
-- [ ] Class-wide leaderboards
-- [ ] Teacher dashboard
-- [ ] Export scores
-- [ ] Analytics
+**Deliverables:**
+- Working Level 1 game
+- Score saved with name
+- Can replay and see history
 
 ---
 
-**This is the DEFINITIVE irregular verbs app for pure memory practice. Simple, effective, and highly engaging! 🚀**
+### **PHASE 2: ALL LEVELS - Complete Game**
+- [ ] Levels 2, 3, 4 implementation
+- [ ] Level selection menu
+- [ ] Difficulty progression
+- [ ] Progress tracking per level (localStorage by name)
+- [ ] Score history per level (best score, average, attempts)
+- [ ] Weak verb identification
+- [ ] Session resumption ("Continue Level X")
+- [ ] Results screen with detailed breakdown
+- [ ] Leaderboard (top scores by student name - optional)
+
+**Deliverables:**
+- 4 complete difficulty levels
+- Student can track progress across all levels
+- See which verbs they struggle with
+
+---
+
+### **PHASE 3: FULL EXPERIENCE - Polish & Features**
+- [ ] Mobile responsive design (works on phones/tablets)
+- [ ] Timer option (optional timed challenges)
+- [ ] Custom level builder (select specific verbs)
+- [ ] Sound effects/feedback (optional)
+- [ ] Achievements/Badges system
+  - "First 100%" badge
+  - "Level Master" badges
+  - "Streak" badges
+- [ ] Statistics dashboard per student
+  - Total verbs mastered
+  - Success rate by verb
+  - Most difficult verbs
+  - Improvement over time
+- [ ] Visual feedback improvements
+  - Better animations
+  - Clearer UI
+
+**Deliverables:**
+- Professional, polished interface
+- Engaging gamification
+- Detailed student analytics
+
+---
+
+### **PHASE 4: TEACHER SUPPORT - Classroom Integration**
+- [ ] Teacher view (optional, no authentication needed)
+- [ ] Class session code system
+- [ ] Teacher can view all student results by name
+- [ ] Class statistics dashboard
+  - Overall class average
+  - Most struggling verbs (class-wide)
+  - Individual student progress
+  - Recommended practice areas
+- [ ] Export results to CSV (teacher can print/grade)
+- [ ] Class performance analytics
+  - Success rates by verb
+  - Common weak areas
+  - Learning trends
+- [ ] Recommended exercises based on class performance
+- [ ] Printable verb lists with student performance
+
+**Deliverables:**
+- Teacher dashboard (view-only, no login)
+- Class performance insights
+- Exportable data for grades
+
+---
+
+## 🛠️ TECHNICAL STACK RECOMMENDATIONS
+
+### Frontend:
+- **HTML5** - Semantic markup
+- **CSS3** - Responsive design, animations
+- **Vanilla JavaScript** - Game logic, randomization
+- **localStorage API** - Store scores by name
+
+### Optional Enhancements:
+- **Chart.js** - Progress graphs
+- **Sound library** - Audio feedback
+- **Animate.css** - UI animations
+
+### No Backend Required for Phase 1-3:
+- All data stored in browser localStorage
+- No server or authentication needed
+
+### Optional Backend (Phase 4):
+- Simple Node.js/Express API
+- Store teacher class sessions
+- Export student data
+- Leaderboard data
+
+---
+
+## 📱 Deployment Options
+
+### Phase 1-3 (No Backend):
+- **GitHub Pages** - Free hosting
+- **Netlify** - Free hosting with SSL
+- **Vercel** - Free hosting
+- Simple drag-and-drop: Just HTML/CSS/JS files
+
+### Phase 4 (With Backend):
+- **Heroku** - Free tier available
+- **Firebase** - Backend as a service
+- **AWS** - Scalable option
+
+---
+
+**Ready to build the DEFINITIVE irregular verbs app? All 4 phases specified and ready to implement! 🚀**
