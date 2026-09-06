@@ -26,6 +26,7 @@
                     </div>
                     
                     <button id="startBtn" class="btn btn-primary" onclick="startGame()">Start Game</button>
+                    <button class="btn btn-secondary" onclick="showTeacherDashboard()">Teacher View</button>
                 </div>
                 
                 <div class="info-box">
@@ -36,6 +37,50 @@
                         <li>Past Participle (e.g., gone)</li>
                         <li>Catalan translation (e.g., anar)</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEACHER DASHBOARD -->
+        <div id="teacherDashboard" class="screen">
+            <div class="card">
+                <h1>📊 Teacher Dashboard</h1>
+                <p>Class Performance Analytics</p>
+                
+                <div class="teacher-controls">
+                    <input type="text" id="classCodeInput" placeholder="Enter session code (optional)" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                    <button class="btn btn-primary" onclick="loadClassData()">Load Class Data</button>
+                </div>
+                
+                <div id="classStats" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <h3>Students Played</h3>
+                            <p class="stat-number" id="totalStudents">0</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Class Average</h3>
+                            <p class="stat-number" id="classAverage">0%</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Highest Score</h3>
+                            <p class="stat-number" id="highestScore">0%</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Most Struggled Verb</h3>
+                            <p class="stat-text" id="struggledVerb">-</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="studentsList" style="margin-top: 30px;">
+                    <h3>Student Results</h3>
+                    <div id="studentsTable"></div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="exportToCSV()">Export to CSV</button>
+                    <button class="btn btn-secondary" onclick="backToLogin()">Back</button>
                 </div>
             </div>
         </div>
@@ -78,6 +123,11 @@
                         <p class="verbs-count">50 verbs</p>
                         <p class="time">60-80 min</p>
                     </div>
+                </div>
+                
+                <div id="progressOverview" style="margin-top: 30px; background: #f5f5f5; padding: 20px; border-radius: 10px;">
+                    <h3>Your Overall Progress</h3>
+                    <div id="allLevelsProgress"></div>
                 </div>
                 
                 <div style="margin-top: 30px; text-align: center;">
@@ -140,7 +190,7 @@
                 </div>
 
                 <div class="student-progress" style="margin-top: 20px;">
-                    <h3 id="progressTitle">Your Progress</h3>
+                    <h3>Your Progress Across All Levels</h3>
                     <div id="progressDetails"></div>
                 </div>
 
